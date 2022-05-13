@@ -1,4 +1,4 @@
-option (ENABLE_MIMALLOC "Enable mimalloc allocator" ${ENABLE_LIBRARIES})
+option (ENABLE_MIMALLOC "Enable mimalloc allocator" On)
 
 if (NOT EXISTS "${CMAKE_SOURCE_DIR}/contrib/mimalloc/include/mimalloc.h")
    message (WARNING "submodule contrib/mimalloc is missing. to fix try run: \n git submodule update --init --recursive")
@@ -30,6 +30,11 @@ if (ENABLE_MIMALLOC)
     message (STATUS "Using mimalloc: ${MIMALLOC_INCLUDE_DIR} : ${MIMALLOC_LIBRARY}")
 
     add_library(_mimalloc ${SRCS})
-    target_include_directories(_mimalloc PUBLIC "${CMAKE_SOURCE_DIR}/contrib/mimalloc/include")
+    # target_compile_options(_mimalloc
+    #     PRIVATE
+    #         -Wno-reserved-identifier
+    # )
+    target_include_directories(_mimalloc SYSTEM BEFORE PUBLIC "${CMAKE_SOURCE_DIR}/contrib/mimalloc/include")
+    target_link_libraries(_mimalloc pthread)
     add_library(ch_contrib::mimalloc ALIAS _mimalloc)
 endif ()
