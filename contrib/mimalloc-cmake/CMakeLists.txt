@@ -7,20 +7,20 @@ endif ()
 set (LIBRARY_DIR ${CMAKE_SOURCE_DIR}/contrib/mimalloc)
 
 set (SRCS
-    ${LIBRARY_DIR}src/stats.c
-    ${LIBRARY_DIR}src/random.c
-    ${LIBRARY_DIR}src/os.c
-    ${LIBRARY_DIR}src/bitmap.c
-    ${LIBRARY_DIR}src/arena.c
-    ${LIBRARY_DIR}src/segment-cache.c
-    ${LIBRARY_DIR}src/segment.c
-    ${LIBRARY_DIR}src/page.c
-    ${LIBRARY_DIR}src/alloc.c
-    ${LIBRARY_DIR}src/alloc-aligned.c
-    ${LIBRARY_DIR}src/alloc-posix.c
-    ${LIBRARY_DIR}src/heap.c
-    ${LIBRARY_DIR}src/options.c
-    ${LIBRARY_DIR}src/init.c
+    ${LIBRARY_DIR}/src/stats.c
+    ${LIBRARY_DIR}/src/random.c
+    ${LIBRARY_DIR}/src/os.c
+    ${LIBRARY_DIR}/src/bitmap.c
+    ${LIBRARY_DIR}/src/arena.c
+    ${LIBRARY_DIR}/src/segment-cache.c
+    ${LIBRARY_DIR}/src/segment.c
+    ${LIBRARY_DIR}/src/page.c
+    ${LIBRARY_DIR}/src/alloc.c
+    ${LIBRARY_DIR}/src/alloc-aligned.c
+    ${LIBRARY_DIR}/src/alloc-posix.c
+    ${LIBRARY_DIR}/src/heap.c
+    ${LIBRARY_DIR}/src/options.c
+    ${LIBRARY_DIR}/src/init.c
 )
 
 if (ENABLE_MIMALLOC)
